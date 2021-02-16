@@ -1,0 +1,52 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "7dbadcff33d7a721e3aa4f2ea260eb8c",
+    "entities": [
+      {
+        "tableName": "bible",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`Book` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `verse` TEXT NOT NULL, `Chapter` INTEGER NOT NULL, `Versecount` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "Book",
+            "columnName": "Book",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "verse",
+            "columnName": "verse",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Chapter",
+            "columnName": "Chapter",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Versecount",
+            "columnName": "Versecount",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "Book"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7dbadcff33d7a721e3aa4f2ea260eb8c')"
+    ]
+  }
+}

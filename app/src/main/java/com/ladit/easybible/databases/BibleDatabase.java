@@ -19,20 +19,11 @@ public abstract class BibleDatabase extends RoomDatabase {
      public abstract BibleDao wordDao();
 
      private static BibleDatabase instance;
-     static final Migration MIGRATION_3_4 = new Migration(3, 4) {
-          @Override
-          public void migrate(SupportSQLiteDatabase database) {
-
-          }
-     };
-
-     public static synchronized BibleDatabase getInstance(Context context) {
+         public static synchronized BibleDatabase getInstance(Context context) {
           if(instance==null){
                instance = Room.databaseBuilder(context.getApplicationContext(), BibleDatabase.class, "english_asv.db")
                        .createFromAsset("english_asv.db")
-                       .addMigrations(MIGRATION_3_4)
-
-                                             .build();
+                       .build();
           }
 
           return instance;
